@@ -32,12 +32,10 @@ namespace WinFormDB__Project2_KeyboardWarrior_
             search_list.Items.Add("상품명");
             adapter.Fill(dataSet, "Monitor");
             dataGridView1.DataSource = dataSet.Tables["Monitor"];
-
             LoginForm lformtmp = Owner as LoginForm;
             if (lformtmp != null)
             {
                 admin = lformtmp.name;
-                label3.Text = lformtmp.level;
                 if (admin == "Admin")
                 {
                     dataGridView1.ReadOnly = false;
@@ -48,6 +46,7 @@ namespace WinFormDB__Project2_KeyboardWarrior_
                     this.tb_search.Location = new System.Drawing.Point(130, 149);
                     title.Text = "KeyBoard Warrior\nMANAGEMENT";
                     pictureBox1.Visible = false;
+                    pictureBox5.Visible = false;
                     pictureBox2.Visible = true;
                     pictureBox3.Visible = true;
                     pictureBox4.Visible = true;
@@ -62,6 +61,7 @@ namespace WinFormDB__Project2_KeyboardWarrior_
                     this.search_list.Location = new System.Drawing.Point(50, 79);
                     title.Text = "KeyBoard Warrior";
                     pictureBox1.Visible = true;
+                    pictureBox5.Visible = true;
                     pictureBox2.Visible = false;
                     pictureBox3.Visible = false;
                     pictureBox4.Visible = false;
@@ -70,16 +70,20 @@ namespace WinFormDB__Project2_KeyboardWarrior_
             }
         }
 
-        public void Search(string sql = "SELECT * FROM ")// substr(ShoppingMall_item_name, 1,1) = @a")
+        public void Search(string sql = "")// substr(ShoppingMall_item_name, 1,1) = @a")
         {
-            adapter.SelectCommand = new MySqlCommand(sql+TABLE, lform.conn);
+            if (sql == "") sql = "SELECT * FROM " + TABLE;
+            adapter.SelectCommand = new MySqlCommand(sql, lform.conn);
 
 
             try
             {
                 lform.conn.Open();
                 dataSet.Clear();
-                if (adapter.Fill(dataSet, TABLE) > 0) dataGridView1.DataSource = dataSet.Tables[TABLE];
+                if (adapter.Fill(dataSet, TABLE) > 0)
+                {
+                    dataGridView1.DataSource = dataSet.Tables[TABLE];
+                }
             }
             catch (Exception ex)
             {
@@ -90,12 +94,13 @@ namespace WinFormDB__Project2_KeyboardWarrior_
                 lform.conn.Close();
             }
         }
+
         private void btn_search_Click(object sender, EventArgs e)
         {
 
             if (tb_search.Text == "")
             {
-                Search("SELECT * FROM "+TABLE);
+                Search();
             }
             else
             {
@@ -150,7 +155,7 @@ namespace WinFormDB__Project2_KeyboardWarrior_
         {
             if (TABLE == "Monitor")
             {
-                string sql = $"update " + TABLE + " set ShoppingMall_item_name=@name, price=@price, hz=@hz, inche=@inche, item_amount=@item_amount where ShoppingMall_item_name = \"{dataGridView1.SelectedRows[0].Cells[ShoppingMall_item_name].Value.ToString()}\"";
+                string sql = $"update " + TABLE + $" set ShoppingMall_item_name=@name, price=@price, hz=@hz, inche=@inche, item_amount=@item_amount where ShoppingMall_item_name = \"{dataGridView1.SelectedRows[0].Cells["ShoppingMall_item_name"].Value.ToString()}\"";
                 adapter.UpdateCommand = new MySqlCommand(sql, lform.conn);
                 adapter.UpdateCommand.Parameters.AddWithValue("@name", dataGridView1.SelectedRows[0].Cells["ShoppingMall_item_name"].Value.ToString());
                 adapter.UpdateCommand.Parameters.AddWithValue("@price", dataGridView1.SelectedRows[0].Cells["price"].Value);
@@ -160,7 +165,7 @@ namespace WinFormDB__Project2_KeyboardWarrior_
             }
             else if (TABLE == "Keyboard")
             {
-                string sql = $"update " + TABLE + " set ShoppingMall_item_name=@name, price=@price, switch=@switch, infinity_input=@infinity_input, item_amount=@item_amount, color=@color where ShoppingMall_item_name = \"{dataGridView1.SelectedRows[0].Cells[ShoppingMall_item_name].Value.ToString()}\"";
+                string sql = $"update " + TABLE + $" set ShoppingMall_item_name=@name, price=@price, switch=@switch, infinity_input=@infinity_input, item_amount=@item_amount, color=@color where ShoppingMall_item_name = \"{dataGridView1.SelectedRows[0].Cells["ShoppingMall_item_name"].Value.ToString()}\"";
                 adapter.UpdateCommand = new MySqlCommand(sql, lform.conn);
                 adapter.UpdateCommand.Parameters.AddWithValue("@name", dataGridView1.SelectedRows[0].Cells["ShoppingMall_item_name"].Value.ToString());
                 adapter.UpdateCommand.Parameters.AddWithValue("@price", dataGridView1.SelectedRows[0].Cells["price"].Value);
@@ -171,7 +176,7 @@ namespace WinFormDB__Project2_KeyboardWarrior_
             }
             else if (TABLE == "Mouse")
             {
-                string sql = $"update " + TABLE + " set ShoppingMall_item_name=@name, price=@price, sensor=@sensor, btn_num=@btn_num, item_amount=@item_amount, wireless=@wireless where ShoppingMall_item_name = \"{dataGridView1.SelectedRows[0].Cells[ShoppingMall_item_name].Value.ToString()}\"";
+                string sql = $"update " + TABLE + $" set ShoppingMall_item_name=@name, price=@price, sensor=@sensor, btn_num=@btn_num, item_amount=@item_amount, wireless=@wireless where ShoppingMall_item_name = \"{dataGridView1.SelectedRows[0].Cells["ShoppingMall_item_name"].Value.ToString()}\"";
                 adapter.UpdateCommand = new MySqlCommand(sql, lform.conn);
                 adapter.UpdateCommand.Parameters.AddWithValue("@name", dataGridView1.SelectedRows[0].Cells["ShoppingMall_item_name"].Value);
                 adapter.UpdateCommand.Parameters.AddWithValue("@price", dataGridView1.SelectedRows[0].Cells["price"].Value);
@@ -182,7 +187,7 @@ namespace WinFormDB__Project2_KeyboardWarrior_
             }
             else if (TABLE == "Earphone")
             {
-                string sql = $"update " + TABLE + " set ShoppingMall_item_name=@name, price=@price, wireless=@wireless, capcolor=@capcolor , item_amount=@item_amount, color=@color where ShoppingMall_item_name = \"{dataGridView1.SelectedRows[0].Cells[ShoppingMall_item_name].Value.ToString()}\"";
+                string sql = $"update " + TABLE + $" set ShoppingMall_item_name=@name, price=@price, wireless=@wireless, capcolor=@capcolor , item_amount=@item_amount, color=@color where ShoppingMall_item_name = \"{dataGridView1.SelectedRows[0].Cells["ShoppingMall_item_name"].Value.ToString()}\"";
                 adapter.UpdateCommand = new MySqlCommand(sql, lform.conn);
                 adapter.UpdateCommand.Parameters.AddWithValue("@name", dataGridView1.SelectedRows[0].Cells["ShoppingMall_item_name"].Value.ToString());
                 adapter.UpdateCommand.Parameters.AddWithValue("@price", dataGridView1.SelectedRows[0].Cells["price"].Value);
@@ -270,5 +275,51 @@ namespace WinFormDB__Project2_KeyboardWarrior_
             this.Hide();
         }
 
+        private void dataGridView1_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            if (TABLE == "Monitor")
+            {
+                dataGridView1.Columns["ShoppingMall_item_name"].DisplayIndex = 0;
+                dataGridView1.Columns["price"].DisplayIndex = 4;
+                dataGridView1.Columns[0].HeaderText = "가격";
+                dataGridView1.Columns[1].HeaderText = "주사율(HZ)";
+                dataGridView1.Columns[2].HeaderText = "인치";
+                dataGridView1.Columns[3].HeaderText = "재고량";
+                dataGridView1.Columns[4].HeaderText = "상품명";
+            }
+            else if (TABLE == "Keyboard")
+            {
+                dataGridView1.Columns["ShoppingMall_item_name"].DisplayIndex = 0;
+                dataGridView1.Columns["price"].DisplayIndex = 5;
+                dataGridView1.Columns[0].HeaderText = "가격";
+                dataGridView1.Columns[1].HeaderText = "색상";
+                dataGridView1.Columns[2].HeaderText = "축";
+                dataGridView1.Columns[3].HeaderText = "동시입력";
+                dataGridView1.Columns[4].HeaderText = "재고량";
+                dataGridView1.Columns[5].HeaderText = "상품명";
+            }
+            else if (TABLE == "Mouse")
+            {
+                dataGridView1.Columns["ShoppingMall_item_name"].DisplayIndex = 0;
+                dataGridView1.Columns["price"].DisplayIndex = 5;
+                dataGridView1.Columns[0].HeaderText = "가격";
+                dataGridView1.Columns[1].HeaderText = "센서";
+                dataGridView1.Columns[2].HeaderText = "버튼 수";
+                dataGridView1.Columns[3].HeaderText = "무선";
+                dataGridView1.Columns[4].HeaderText = "재고량";
+                dataGridView1.Columns[5].HeaderText = "상품명";
+            }
+            else if (TABLE == "Earphone")
+            {
+                dataGridView1.Columns["ShoppingMall_item_name"].DisplayIndex = 0;
+                dataGridView1.Columns["price"].DisplayIndex = 5;
+                dataGridView1.Columns[0].HeaderText = "가격";
+                dataGridView1.Columns[1].HeaderText = "색상";
+                dataGridView1.Columns[2].HeaderText = "캡 색상";
+                dataGridView1.Columns[3].HeaderText = "무선";
+                dataGridView1.Columns[4].HeaderText = "재고량";
+                dataGridView1.Columns[5].HeaderText = "상품명";
+            }
+        }
     }
 }

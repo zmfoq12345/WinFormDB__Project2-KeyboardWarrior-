@@ -41,17 +41,18 @@
             this.모니터 = new System.Windows.Forms.RadioButton();
             this.btn_search = new System.Windows.Forms.Button();
             this.search_list = new System.Windows.Forms.ComboBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -64,6 +65,7 @@
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(799, 329);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dataGridView1_DataBindingComplete);
             this.dataGridView1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridView1_KeyDown);
             // 
             // title
@@ -194,8 +196,21 @@
             this.search_list.Size = new System.Drawing.Size(81, 20);
             this.search_list.TabIndex = 10;
             // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = global::WinFormDB__Project2_KeyboardWarrior_.Properties.Resources.update;
+            this.pictureBox4.Location = new System.Drawing.Point(745, 14);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(35, 35);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox4.TabIndex = 15;
+            this.pictureBox4.TabStop = false;
+            this.pictureBox4.Visible = false;
+            this.pictureBox4.Click += new System.EventHandler(this.btn_update_Click);
+            // 
             // pictureBox3
             // 
+            this.pictureBox3.Image = global::WinFormDB__Project2_KeyboardWarrior_.Properties.Resources.minus;
             this.pictureBox3.Location = new System.Drawing.Point(707, 14);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(35, 35);
@@ -208,6 +223,7 @@
             // pictureBox2
             // 
             this.pictureBox2.ErrorImage = null;
+            this.pictureBox2.Image = global::WinFormDB__Project2_KeyboardWarrior_.Properties.Resources.plus;
             this.pictureBox2.Location = new System.Drawing.Point(669, 14);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(35, 35);
@@ -219,34 +235,23 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Image = global::WinFormDB__Project2_KeyboardWarrior_.Properties.Resources.maxresdefault_live1;
             this.pictureBox1.Location = new System.Drawing.Point(12, 106);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(500, 75);
+            this.pictureBox1.Size = new System.Drawing.Size(247, 75);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 8;
             this.pictureBox1.TabStop = false;
             // 
-            // pictureBox4
+            // pictureBox5
             // 
-            this.pictureBox4.Location = new System.Drawing.Point(745, 14);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(35, 35);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox4.TabIndex = 15;
-            this.pictureBox4.TabStop = false;
-            this.pictureBox4.Visible = false;
-            this.pictureBox4.Click += new System.EventHandler(this.btn_update_Click);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("휴먼모음T", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label3.Location = new System.Drawing.Point(-1, 1);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(50, 14);
-            this.label3.TabIndex = 16;
-            this.label3.Text = "MODE:";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.pictureBox5.Image = global::WinFormDB__Project2_KeyboardWarrior_.Properties.Resources.ad;
+            this.pictureBox5.Location = new System.Drawing.Point(262, 106);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(247, 75);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox5.TabIndex = 16;
+            this.pictureBox5.TabStop = false;
             // 
             // MainForm
             // 
@@ -254,7 +259,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(797, 516);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox2);
@@ -275,10 +280,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -303,6 +309,6 @@
     private System.Windows.Forms.PictureBox pictureBox2;
     private System.Windows.Forms.PictureBox pictureBox3;
     private System.Windows.Forms.PictureBox pictureBox4;
-    private System.Windows.Forms.Label label3;
-}
+        private System.Windows.Forms.PictureBox pictureBox5;
+    }
 }

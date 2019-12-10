@@ -55,7 +55,6 @@ namespace WinFormDB__Project2_KeyboardWarrior_
                 islogin(id, pw);
                 if (login_Check)
                 {
-                    GetTopLevel(id);
                     MainForm form1 = new MainForm();
                     form1.Owner = this;
                     form1.Show();
@@ -64,37 +63,6 @@ namespace WinFormDB__Project2_KeyboardWarrior_
             }
 
         }
-        private void GetTopLevel(string id)
-        {
-            string sql = "SELECT point FROM userinfo WHERE id = @id and name = @name";
-            MySqlCommand cmd = new MySqlCommand(sql, conn);
-            cmd.Parameters.AddWithValue("@id", id);
-            cmd.Parameters.AddWithValue("@name", name);
-            try
-            {
-                conn.Open();
-                MySqlDataReader reader = cmd.ExecuteReader();
-
-                if (reader.Read())
-                {
-                    level = reader.GetString("point");
-                }
-                else
-                {
-                    MessageBox.Show("err");
-                }
-                reader.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                conn.Close();
-            }
-        }
-
 
         private void InsertUser(string id, string pw, string name)
         {
@@ -164,7 +132,6 @@ namespace WinFormDB__Project2_KeyboardWarrior_
                 {
                     name = reader.GetString("name");
                     login_Check = true;
-
                 }
                 else
                 {
