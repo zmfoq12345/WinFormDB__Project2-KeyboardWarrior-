@@ -44,6 +44,7 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Image = global::WinFormDB__Project2_KeyboardWarrior_.Properties.Resources.back;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(796, 517);
@@ -91,10 +92,10 @@
             // 
             // btn_login
             // 
-            this.btn_login.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btn_login.BackColor = System.Drawing.Color.Gray;
             this.btn_login.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btn_login.Font = new System.Drawing.Font("굴림", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btn_login.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btn_login.ForeColor = System.Drawing.Color.Black;
             this.btn_login.Location = new System.Drawing.Point(571, 408);
             this.btn_login.Name = "btn_login";
             this.btn_login.Size = new System.Drawing.Size(151, 47);
