@@ -14,7 +14,7 @@ namespace WinFormDB__Project2_KeyboardWarrior_
     public partial class LoginForm : Form
     {
         public bool login_Check = false;
-        public MySqlConnection conn = new MySqlConnection("server=localhost;port=3306;database=mydb;username=root;password=zotb1026!!");
+        public MySqlConnection conn = new MySqlConnection("server=localhost;port=3306;database=mydb;username=root;password=2ehdrjsrjs");
         public LoginForm()
         {
             InitializeComponent();

@@ -46,6 +46,7 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -71,16 +72,16 @@
             // title
             // 
             this.title.AutoSize = true;
-            this.title.Font = new System.Drawing.Font("타이포_쌍문동 B", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.title.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.title.Location = new System.Drawing.Point(4, 12);
             this.title.Name = "title";
-            this.title.Size = new System.Drawing.Size(496, 58);
+            this.title.Size = new System.Drawing.Size(422, 55);
             this.title.TabIndex = 1;
             this.title.Text = "KeyBoard Warrior";
             // 
             // label1
             // 
-            this.label1.Font = new System.Drawing.Font("타이포_쌍문동 B", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label1.Location = new System.Drawing.Point(577, 68);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(121, 16);
@@ -310,5 +311,6 @@
     private System.Windows.Forms.PictureBox pictureBox3;
     private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
     }
 }
