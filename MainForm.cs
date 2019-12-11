@@ -75,7 +75,6 @@ namespace WinFormDB__Project2_KeyboardWarrior_
             if (sql == "") sql = "SELECT * FROM " + TABLE;
             adapter.SelectCommand = new MySqlCommand(sql, lform.conn);
 
-
             try
             {
                 lform.conn.Open();
@@ -290,7 +289,7 @@ namespace WinFormDB__Project2_KeyboardWarrior_
             else if (TABLE == "Keyboard")
             {
                 dataGridView1.Columns["ShoppingMall_item_name"].DisplayIndex = 0;
-                dataGridView1.Columns["price"].DisplayIndex = 5;
+                dataGridView1.Columns["price"].DisplayIndex = 4;
                 dataGridView1.Columns[0].HeaderText = "가격";
                 dataGridView1.Columns[1].HeaderText = "색상";
                 dataGridView1.Columns[2].HeaderText = "축";
@@ -301,7 +300,7 @@ namespace WinFormDB__Project2_KeyboardWarrior_
             else if (TABLE == "Mouse")
             {
                 dataGridView1.Columns["ShoppingMall_item_name"].DisplayIndex = 0;
-                dataGridView1.Columns["price"].DisplayIndex = 5;
+                dataGridView1.Columns["price"].DisplayIndex = 4;
                 dataGridView1.Columns[0].HeaderText = "가격";
                 dataGridView1.Columns[1].HeaderText = "센서";
                 dataGridView1.Columns[2].HeaderText = "버튼 수";
@@ -312,7 +311,7 @@ namespace WinFormDB__Project2_KeyboardWarrior_
             else if (TABLE == "Earphone")
             {
                 dataGridView1.Columns["ShoppingMall_item_name"].DisplayIndex = 0;
-                dataGridView1.Columns["price"].DisplayIndex = 5;
+                dataGridView1.Columns["price"].DisplayIndex = 4;
                 dataGridView1.Columns[0].HeaderText = "가격";
                 dataGridView1.Columns[1].HeaderText = "색상";
                 dataGridView1.Columns[2].HeaderText = "캡 색상";
