@@ -169,7 +169,7 @@ namespace WinFormDB__Project2_KeyboardWarrior_
                     ExcelFileSave();
                 }
             }
-            else if (result2 == DialogResult.Cancel) Console.WriteLine("CANCEL 클릭");
+            //else if (result2 == DialogResult.Cancel) Console.WriteLine("CANCEL 클릭");
         }
 
         private void TextFileSave()

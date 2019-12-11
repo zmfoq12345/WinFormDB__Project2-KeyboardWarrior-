@@ -47,3 +47,4 @@ C:\Users\Raindot\Documents\GitHub\WinFormDB__Project2-KeyboardWarrior-\obj\Debug
 C:\Users\Raindot\Documents\GitHub\WinFormDB__Project2-KeyboardWarrior-\obj\Debug\WinFormDB__Project2-KeyboardWarrior-.csproj.CopyComplete
 C:\Users\Raindot\Documents\GitHub\WinFormDB__Project2-KeyboardWarrior-\obj\Debug\WinFormDB__Project2-KeyboardWarrior-.exe
 C:\Users\Raindot\Documents\GitHub\WinFormDB__Project2-KeyboardWarrior-\obj\Debug\WinFormDB__Project2-KeyboardWarrior-.pdb
+C:\Users\anihy\source\repos\C#\WindowsForm\WinFormDB02\WinFormDB__Project2-KeyboardWarrior-\obj\Debug\WinFormDB__Project2-KeyboardWarrior-.csproj.ResolveComReference.cache
